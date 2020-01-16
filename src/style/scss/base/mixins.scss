@@ -1,0 +1,13 @@
+@mixin flexMix ($direction, $jContent, $alignItems){ 
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $jContent;
+  align-items: $alignItems;
+}
+
+@mixin applyFont($fontFamily, $fontSize, $lineHeight, $textColor) {
+  font-family: $fontFamily !important;
+  font-size: $fontSize !important;
+  line-height: $lineHeight !important;
+  color: $textColor !important;
+}

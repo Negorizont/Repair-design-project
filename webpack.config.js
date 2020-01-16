@@ -13,20 +13,45 @@ module.exports = {
   module: {
     rules: [{
       test: /\.js$/,
-      loader: [ 'babel-loader' ],
-      exclude: [ '/node_modules/' ]
+      loader: 'babel-loader',
+      exclude: '/node-modules/'
     }, {
       test: /\.scss$/,
       use: [
-        'style-loader',
+        "style-loader",
         MiniCssExtractPlugin.loader,
         {
           loader: 'css-loader',
           options: { sourceMap: true }
+        }, {
+          loader: 'postcss-loader',
+          options: { 
+            sourceMap: true, 
+            config: { 
+              path: 'src/js/postcss.config.js' 
+            } 
+          } 
         },
         {
           loader: 'sass-loader',
           options: { sourceMap: true }
+        }
+      ]
+    }, {
+      test: /\.css$/,
+      use: [
+        MiniCssExtractPlugin.loader,
+        {
+          loader: 'css-loader',
+          options: { sourceMap: true }
+        }, {
+          loader: 'postcss-loader',
+          options: { 
+            sourceMap: true, 
+            config: { 
+              path: 'src/js/postcss.config.js' 
+            } 
+          } 
         }
       ]
     }]
@@ -36,7 +61,7 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: 'main.css'
+      filename: "main.css"
     })
   ]
-};
+}

@@ -1,0 +1,47 @@
+.header {
+  height: 100vh;
+  grid-template-columns: 82px 165px 1fr;
+  grid-template-rows: 83px 1fr 48px;
+  background-color: $black-bg-col;
+
+  .header--nav {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    padding: 24px 100px 22px 82px;
+    @include flexMix(row, space-between, center);
+    text-align: center;
+    text-transform: uppercase ;
+    
+    .nav--logo {
+      @include applyFont('FuturaDemiC', 14px, 16px, $gold-text-col);
+      display: block;
+    }
+
+    .nav--header-list {
+      min-width: 350px;
+      width: 100%;
+      max-width: 585px;
+      @include flexMix(row, space-between, center);
+      @include applyFont('FuturaBookC', 14px, 16px, $white-text-col);
+    }
+    
+    .nav--phone {
+      @include applyFont('FuturaDemiC', 14px, 16px, $gold-text-col);
+      text-decoration: underline;
+    }
+
+    .nav--call-btn {
+      border: none;
+      padding: 13px 33px;
+      @include applyFont('FuturaDemic', 13px, 15px, $white-text-col);
+      border-radius: 2px;
+      background-color: $gold-bg-col;
+      box-shadow: 0px 5px 15px rgba(227, 184, 115, 0.2);
+    }
+  }
+}
+
+
+
