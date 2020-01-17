@@ -1,14 +1,16 @@
 .header {
   height: 100vh;
+  display: grid;
+  grid-template-areas:
+    "n n n"
+    "i h h"
+    "b h h";
   grid-template-columns: 82px 165px 1fr;
-  grid-template-rows: 83px 1fr 48px;
+  grid-template-rows: 83px auto 48px;
   background-color: $black-bg-col;
 
   .header--nav {
-    grid-column-start: 1;
-    grid-column-end: 4;
-    grid-row-start: 1;
-    grid-row-end: 2;
+    grid-area: n;
     padding: 24px 100px 22px 82px;
     @include flexMix(row, space-between, center);
     text-align: center;
@@ -40,6 +42,32 @@
       background-color: $gold-bg-col;
       box-shadow: 0px 5px 15px rgba(227, 184, 115, 0.2);
     }
+  }
+
+  .header--instagram {
+    grid-area: i;
+
+    .instagram--link {
+      width: 148px;
+      @include flexMix(row, space-between, center);
+      transform: rotate(90deg) translate(265px, 33px);
+      @include applyFont('FuturaDemic', 14px, 16px, $gold-text-col);
+      text-transform: uppercase;
+
+      .inst-line {
+        width: 51px;
+        height: 0;
+        border-bottom: 1px solid $gold-text-col;
+      }
+    }
+  }
+
+  .header--head {
+    grid-area: h;
+  }
+
+  .header--scroll-btn {
+    grid-area: b;
   }
 }
 

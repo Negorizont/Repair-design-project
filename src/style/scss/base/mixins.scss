@@ -6,8 +6,8 @@
 }
 
 @mixin applyFont($fontFamily, $fontSize, $lineHeight, $textColor) {
-  font-family: $fontFamily !important;
-  font-size: $fontSize !important;
-  line-height: $lineHeight !important;
-  color: $textColor !important;
+  font-family: $fontFamily;
+  font-size: $fontSize;
+  line-height: $lineHeight;
+  color: $textColor;
 }
