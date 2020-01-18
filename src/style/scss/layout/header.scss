@@ -2,19 +2,19 @@
   height: 100vh;
   display: grid;
   grid-template-areas:
-    "n n n"
-    "i h h"
-    "b h h";
-  grid-template-columns: 82px 165px 1fr;
+    "n n"
+    "i h"
+    "b h";
+  grid-template-columns: 82px 1fr;
   grid-template-rows: 83px auto 48px;
   background-color: $black-bg-col;
+  text-transform: uppercase;
 
   .header--nav {
     grid-area: n;
     padding: 24px 100px 22px 82px;
     @include flexMix(row, space-between, center);
     text-align: center;
-    text-transform: uppercase ;
     
     .nav--logo {
       @include applyFont('FuturaDemiC', 14px, 16px, $gold-text-col);
@@ -25,22 +25,20 @@
       min-width: 350px;
       width: 100%;
       max-width: 585px;
+      margin-left: -21px;
       @include flexMix(row, space-between, center);
       @include applyFont('FuturaBookC', 14px, 16px, $white-text-col);
     }
     
     .nav--phone {
+      margin-right: -81px;
       @include applyFont('FuturaDemiC', 14px, 16px, $gold-text-col);
       text-decoration: underline;
     }
 
     .nav--call-btn {
-      border: none;
-      padding: 13px 33px;
       @include applyFont('FuturaDemic', 13px, 15px, $white-text-col);
-      border-radius: 2px;
-      background-color: $gold-bg-col;
-      box-shadow: 0px 5px 15px rgba(227, 184, 115, 0.2);
+      @include addBtn(13px, 33px);
     }
   }
 
@@ -50,9 +48,8 @@
     .instagram--link {
       width: 148px;
       @include flexMix(row, space-between, center);
-      transform: rotate(90deg) translate(265px, 33px);
+      transform: rotate(90deg) translate(298px, 33px);
       @include applyFont('FuturaDemic', 14px, 16px, $gold-text-col);
-      text-transform: uppercase;
 
       .inst-line {
         width: 51px;
@@ -64,11 +61,90 @@
 
   .header--head {
     grid-area: h;
+    display: grid;
+    position: relative;
+  
+    .head-wrapper {
+      margin-top: 194px;
+      margin-left: 60px;
+      z-index: 1;
+    
+      .head--name {
+        max-width: 600px;
+        @include applyFont('YesevaOne', 40px, 53px, $white-text-col);
+
+        span {
+          color: $gold-text-col;
+        }
+      }
+
+      .head--description {
+        max-width: 440px;
+        margin: 19px 0 41px;
+        @include applyFont('FuturaBookC', 22px, 30px, $white-text-col);
+        text-transform: initial;
+      }
+
+      .head--calculate-btn {
+        @include addBtn(20px, 41px);
+        margin-right: 20px;
+        @include applyFont('FuturaDemiC', 13px, 15px, $white-text-col);
+      }
+
+      .head--submit-btn {
+        box-sizing: border-box;
+        background: none;
+        padding: 20px 22px;
+        border: 1px solid $white-bg-col;
+        border-radius: 2px;
+        @include applyFont('FuturaDemiC', 13px, 15px, $white-text-col);
+      }
+    }
+  }
+
+  .header--head::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/src/style/assets/images/desctop-header-bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    filter: brightness(40%);
   }
 
   .header--scroll-btn {
     grid-area: b;
+    width: 247px;
+    padding: 0 49px;
+    display: grid;
+    align-items: center;
+    border: none;
+    background-color: $black-bg-col;
+    z-index: 1; 
+    
+    span {
+      position: relative;
+      @include applyFont('YesevaOne', 14px, 19px, $white-text-col);
+      text-transform: uppercase;
+      margin-right: 31px;
+    }
+
+    span::after {
+      content: "";
+      position: absolute;
+      top: -6px;
+      right: -32px;
+      display: block;
+      width: 29px;
+      height: 29px;
+      background-image: url('/src/style/assets/images/scroll-down.svg');
+      z-index: 1;
+    }
   }
+
 }
 
 

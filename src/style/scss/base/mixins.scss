@@ -11,3 +11,11 @@
   line-height: $lineHeight;
   color: $textColor;
 }
+
+@mixin addBtn($a, $b) {
+  border: none;
+  padding: $a $b;
+  border-radius: 2px;
+  background-color: $gold-bg-col;
+  box-shadow: 0px 5px 15px rgba(227, 184, 115, 0.2);
+}
